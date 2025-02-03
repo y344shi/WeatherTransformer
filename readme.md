@@ -58,8 +58,10 @@ Creates input (past 24 hours) and output sequences (next hour) for the model.
 input_window: Number of past hours to consider.
 forecast_horizon: Number of future hours to predict.
 - **Sample Code:**  
+```python
 df = DataPreprocessor.create_dataframe(data_records)
 X, y = DataPreprocessor.create_sequences(df, input_window=24, forecast_horizon=1)
+```
 
 ### 3. Transformer Model
 PositionalEncoding
@@ -83,7 +85,9 @@ Predicts future weather features from the encoded sequence.
 d_model, nhead, num_layers, dim_feedforward, and dropout.
 forecast_horizon: How many future time steps to predict.
 - **Sample Code:**  
+```python
 model = WeatherTransformer(feature_size=4, forecast_horizon=1, d_model=64, nhead=4, num_layers=2)
+```
 
 ### 4. Trainer
 - **Purpose:**
@@ -96,8 +100,10 @@ Loads a saved checkpoint to resume training or for inference.
 num_epochs: Number of training epochs.
 save_every: Frequency of checkpoint saving.
 - **Sample Code:**
+```python
 trainer = Trainer(model, train_loader, criterion, optimizer, device)
 trainer.train(num_epochs=10, save_every=5)
+```
 # To load a checkpoint:
 # trainer.load_checkpoint("checkpoints/checkpoint_epoch_5.pth")
 
