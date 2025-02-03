@@ -189,7 +189,7 @@ def main():
 
     input_window = 24     # Number of past hours as input
     forecast_horizon = 1  # Number of future hours to predict
-    num_records = 24      # Total records to fetch (must be >= input_window + forecast_horizon)
+    num_records = input_window + forecast_horizon      # Total records to fetch (must be >= input_window + forecast_horizon)
     
     # ---------------------------
     # Data Acquisition
@@ -202,7 +202,7 @@ def main():
         if record:
             data_records.append(record)
             print(f"record {i} fetched as {record}")
-        time.sleep(1800)  # For simulation/demo purposes only
+        time.sleep(1)  # For simulation/demo purposes only
 
     if len(data_records) < input_window + forecast_horizon:
         print("Not enough data to create sequences.")
