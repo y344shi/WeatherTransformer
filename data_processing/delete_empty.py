@@ -25,7 +25,7 @@ keep_dir = "keep"
 os.makedirs(keep_dir, exist_ok=True)
 
 # Walk through all CSVs
-for root, _, files in os.walk("."):
+for root, _, files in os.walk("/mnt/d/446Project/WeatherTransformer/data_processing/raw_data/daily_csv"):
     for file in files:
         if file.lower().endswith(".csv"):
             file_path = os.path.join(root, file)
@@ -45,9 +45,10 @@ for root, _, files in os.walk("."):
                             non_empty_count += 1
 
                 if non_empty_count < min_non_empty_columns:
-                    print(f"[Would delete] {file_path} — only {non_empty_count} non-empty column(s).")
+                    # print(f"[Would delete] {file_path} — only {non_empty_count} non-empty column(s).")
+                    pass
                 else:
                     print(f"[Keeping] {file_path} — {non_empty_count} non-empty column(s). Moving to '{keep_dir}/'")
-                    shutil.move(file_path, os.path.join(keep_dir, file))
+                    # shutil.move(file_path, os.path.join(keep_dir, file))
             except Exception as e:
                 print(f"[Error] Failed to process {file_path}: {e}")
