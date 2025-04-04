@@ -1,6 +1,2 @@
 data_processing/daily_csv
-data_processing/LightningData
-data_processing/OpenWeatherData
-data_processing/PopulationData
-data_processing/WildFireData
 data_processing/*.csv
